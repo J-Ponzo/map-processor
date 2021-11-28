@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NodeCanvas type="MP_NodeCanvas">
+	<EditorStates>
+		<EditorState selected="" pan="-1108.6,-34.39989" zoom="3.6" />
+	</EditorStates>
+	<Groups>
+		<Group name="ORM" rect="2933,-312.4001,1409.2,878.8" color="0,0,1,1" />
+		<Group name="Normal" rect="1841.8,-314.0001,998.3999,625.6" color="0,0,1,1" />
+		<Group name="Diffuse" rect="831.8005,-310.6001,968,619.2" color="0,0,1,1" />
+	</Groups>
+	<Nodes>
+		<Node name="Begin" ID="-80580" type="beginProcNode" pos="-363,-84.5">
+			<Port ID="-80582" name="outputExecKnob" dynamic="False" />
+			<Variable name="procName" refID="-37303064" />
+		</Node>
+		<Node name="Get All File Names" ID="-80584" type="getAllFileNamesNode" pos="12,-82.5">
+			<Port ID="-80586" name="execInKnob" dynamic="False" />
+			<Port ID="-80588" name="execOutKnob" dynamic="False" />
+			<Port ID="-80590" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80592" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="String" ID="-80594" type="inputStringNode" pos="-578.4,735.6">
+			<Port ID="-80596" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="526651700" />
+		</Node>
+		<Node name="String" ID="-80598" type="inputStringNode" pos="348.4,-612.8">
+			<Port ID="-80600" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="-752120307" />
+		</Node>
+		<Node name="Group By Suffixes" ID="-80602" type="GroupBySuffixes" pos="298,-82.5">
+			<Port ID="-80604" name="execInKnob" dynamic="False" />
+			<Port ID="-80606" name="execOutKnob" dynamic="False" />
+			<Port ID="-80608" name="inputStringsKnob" dynamic="False" />
+			<Port ID="-80610" name="inputSuffixesKnob" dynamic="False" />
+			<Port ID="-80612" name="outputGroupsKnob" dynamic="False" />
+		</Node>
+		<Node name="String" ID="-80614" type="inputStringNode" pos="-80,72.5">
+			<Port ID="-80616" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="7129864" />
+		</Node>
+		<Node name="String" ID="-80618" type="inputStringNode" pos="-73,157.5">
+			<Port ID="-80620" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="782782822" />
+		</Node>
+		<Node name="String" ID="-80622" type="inputStringNode" pos="-80,242.5">
+			<Port ID="-80624" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="645832278" />
+		</Node>
+		<Node name="String" ID="-80626" type="inputStringNode" pos="-80,330.5">
+			<Port ID="-80628" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="982555994" />
+		</Node>
+		<Node name="String" ID="-80630" type="inputStringNode" pos="-74,405.5">
+			<Port ID="-80632" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="54700693" />
+		</Node>
+		<Node name="Foreach" ID="-80634" type="foreachString" pos="539,-82.5">
+			<Port ID="-80636" name="execInKnob" dynamic="False" />
+			<Port ID="-80638" name="execLoopKnob" dynamic="False" />
+			<Port ID="-80640" name="execOutKnob" dynamic="False" />
+			<Port ID="-80642" name="inputArrayKnob" dynamic="False" />
+			<Port ID="-80644" name="outputEltKnob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80646" type="appendNode" pos="826.6,744.7">
+			<Port ID="-80648" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80650" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80652" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80654" type="appendNode" pos="896.4005,42.79998">
+			<Port ID="-80656" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80658" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80660" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Load" ID="-80662" type="loadTexture2DNode" pos="1127.201,-84.00001">
+			<Port ID="-80664" name="execInKnob" dynamic="False" />
+			<Port ID="-80666" name="execOutKnob" dynamic="False" />
+			<Port ID="-80668" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80670" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="Split" ID="-80672" type="splitTexture2DNode" pos="1280.401,12.79999">
+			<Port ID="-80674" name="inputTex2DKnob" dynamic="False" />
+			<Port ID="-80676" name="outputRedChanKnob" dynamic="False" />
+			<Port ID="-80678" name="outputGreenChanKnob" dynamic="False" />
+			<Port ID="-80680" name="outputBlueChanKnob" dynamic="False" />
+			<Port ID="-80682" name="outputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Merge" ID="-80684" type="mergeTexture2DNode" pos="1482.001,16.39998">
+			<Port ID="-80686" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80688" name="inputRedChanKnob" dynamic="False" />
+			<Port ID="-80690" name="inputGreenChanKnob" dynamic="False" />
+			<Port ID="-80692" name="inputBlueChanKnob" dynamic="False" />
+			<Port ID="-80694" name="inputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Save" ID="-80696" type="saveTexture2DNode" pos="1658.401,-83.20004">
+			<Port ID="-80698" name="execInKnob" dynamic="False" />
+			<Port ID="-80700" name="execOutKnob" dynamic="False" />
+			<Port ID="-80702" name="inputPathKnob" dynamic="False" />
+			<Port ID="-80704" name="inputTex2DKnob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80706" type="appendNode" pos="881.2001,-609.6">
+			<Port ID="-80708" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80710" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80712" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80714" type="appendNode" pos="1468.001,-277.5999">
+			<Port ID="-80716" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80718" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80720" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="String" ID="-80722" type="inputStringNode" pos="1092.001,-249.9999">
+			<Port ID="-80724" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="-2128255500" />
+		</Node>
+		<Node name="Load" ID="-80726" type="loadTexture2DNode" pos="2128.6,-68.40002">
+			<Port ID="-80728" name="execInKnob" dynamic="False" />
+			<Port ID="-80730" name="execOutKnob" dynamic="False" />
+			<Port ID="-80732" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80734" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="Split" ID="-80736" type="splitTexture2DNode" pos="2313.4,14.39999">
+			<Port ID="-80738" name="inputTex2DKnob" dynamic="False" />
+			<Port ID="-80740" name="outputRedChanKnob" dynamic="False" />
+			<Port ID="-80742" name="outputGreenChanKnob" dynamic="False" />
+			<Port ID="-80744" name="outputBlueChanKnob" dynamic="False" />
+			<Port ID="-80746" name="outputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Merge" ID="-80748" type="mergeTexture2DNode" pos="2510.2,10.79998">
+			<Port ID="-80750" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80752" name="inputRedChanKnob" dynamic="False" />
+			<Port ID="-80754" name="inputGreenChanKnob" dynamic="False" />
+			<Port ID="-80756" name="inputBlueChanKnob" dynamic="False" />
+			<Port ID="-80758" name="inputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Save" ID="-80760" type="saveTexture2DNode" pos="2672.2,-80.40001">
+			<Port ID="-80762" name="execInKnob" dynamic="False" />
+			<Port ID="-80764" name="execOutKnob" dynamic="False" />
+			<Port ID="-80766" name="inputPathKnob" dynamic="False" />
+			<Port ID="-80768" name="inputTex2DKnob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80770" type="appendNode" pos="1861.2,91.29999">
+			<Port ID="-80772" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80774" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80776" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80778" type="appendNode" pos="2425.8,-301.2">
+			<Port ID="-80780" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80782" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80784" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="String" ID="-80786" type="inputStringNode" pos="2094.6,-277.2">
+			<Port ID="-80788" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="1690472495" />
+		</Node>
+		<Node name="Save" ID="-80790" type="saveTexture2DNode" pos="4166,296.1">
+			<Port ID="-80792" name="execInKnob" dynamic="False" />
+			<Port ID="-80794" name="execOutKnob" dynamic="False" />
+			<Port ID="-80796" name="inputPathKnob" dynamic="False" />
+			<Port ID="-80798" name="inputTex2DKnob" dynamic="False" />
+		</Node>
+		<Node name="Load" ID="-80800" type="loadTexture2DNode" pos="3324,-71.7">
+			<Port ID="-80802" name="execInKnob" dynamic="False" />
+			<Port ID="-80804" name="execOutKnob" dynamic="False" />
+			<Port ID="-80806" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80808" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="Load" ID="-80810" type="loadTexture2DNode" pos="3313.2,115.3">
+			<Port ID="-80812" name="execInKnob" dynamic="False" />
+			<Port ID="-80814" name="execOutKnob" dynamic="False" />
+			<Port ID="-80816" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80818" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80820" type="appendNode" pos="3373.2,-293">
+			<Port ID="-80822" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80824" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80826" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="String" ID="-80828" type="inputStringNode" pos="2969.6,-237.4">
+			<Port ID="-80830" name="outputKnob" dynamic="False" />
+			<Variable name="value" refID="-1038066982" />
+		</Node>
+		<Node name="Load" ID="-80832" type="loadTexture2DNode" pos="3303.2,299.4">
+			<Port ID="-80834" name="execInKnob" dynamic="False" />
+			<Port ID="-80836" name="execOutKnob" dynamic="False" />
+			<Port ID="-80838" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80840" name="inputPathKnob" dynamic="False" />
+		</Node>
+		<Node name="Split" ID="-80842" type="splitTexture2DNode" pos="3760.4,407.8">
+			<Port ID="-80844" name="inputTex2DKnob" dynamic="False" />
+			<Port ID="-80846" name="outputRedChanKnob" dynamic="False" />
+			<Port ID="-80848" name="outputGreenChanKnob" dynamic="False" />
+			<Port ID="-80850" name="outputBlueChanKnob" dynamic="False" />
+			<Port ID="-80852" name="outputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Split" ID="-80854" type="splitTexture2DNode" pos="3707.2,176.6">
+			<Port ID="-80856" name="inputTex2DKnob" dynamic="False" />
+			<Port ID="-80858" name="outputRedChanKnob" dynamic="False" />
+			<Port ID="-80860" name="outputGreenChanKnob" dynamic="False" />
+			<Port ID="-80862" name="outputBlueChanKnob" dynamic="False" />
+			<Port ID="-80864" name="outputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Split" ID="-80866" type="splitTexture2DNode" pos="3702.8,-17.40003">
+			<Port ID="-80868" name="inputTex2DKnob" dynamic="False" />
+			<Port ID="-80870" name="outputRedChanKnob" dynamic="False" />
+			<Port ID="-80872" name="outputGreenChanKnob" dynamic="False" />
+			<Port ID="-80874" name="outputBlueChanKnob" dynamic="False" />
+			<Port ID="-80876" name="outputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Merge" ID="-80878" type="mergeTexture2DNode" pos="4022,364.3">
+			<Port ID="-80880" name="outputTex2DKnob" dynamic="False" />
+			<Port ID="-80882" name="inputRedChanKnob" dynamic="False" />
+			<Port ID="-80884" name="inputGreenChanKnob" dynamic="False" />
+			<Port ID="-80886" name="inputBlueChanKnob" dynamic="False" />
+			<Port ID="-80888" name="inputAlphaChanKnob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80890" type="appendNode" pos="2983.6,213.5">
+			<Port ID="-80892" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80894" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80896" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80898" type="appendNode" pos="2981.2,308.9">
+			<Port ID="-80900" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80902" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80904" name="inputString2Knob" dynamic="False" />
+		</Node>
+		<Node name="Append" ID="-80906" type="appendNode" pos="2987,420.1">
+			<Port ID="-80908" name="outputStringKnob" dynamic="False" />
+			<Port ID="-80910" name="inputString1Knob" dynamic="False" />
+			<Port ID="-80912" name="inputString2Knob" dynamic="False" />
+		</Node>
+	</Nodes>
+	<Connections>
+		<Connection port1ID="-80582" port2ID="-80586" />
+		<Connection port1ID="-80588" port2ID="-80604" />
+		<Connection port1ID="-80590" port2ID="-80608" />
+		<Connection port1ID="-80592" port2ID="-80596" />
+		<Connection port1ID="-80596" port2ID="-80650" />
+		<Connection port1ID="-80600" port2ID="-80710" />
+		<Connection port1ID="-80606" port2ID="-80636" />
+		<Connection port1ID="-80610" port2ID="-80616" />
+		<Connection port1ID="-80610" port2ID="-80620" />
+		<Connection port1ID="-80610" port2ID="-80624" />
+		<Connection port1ID="-80610" port2ID="-80628" />
+		<Connection port1ID="-80610" port2ID="-80632" />
+		<Connection port1ID="-80612" port2ID="-80642" />
+		<Connection port1ID="-80616" port2ID="-80660" />
+		<Connection port1ID="-80620" port2ID="-80776" />
+		<Connection port1ID="-80624" port2ID="-80896" />
+		<Connection port1ID="-80628" port2ID="-80904" />
+		<Connection port1ID="-80632" port2ID="-80912" />
+		<Connection port1ID="-80638" port2ID="-80664" />
+		<Connection port1ID="-80644" port2ID="-80652" />
+		<Connection port1ID="-80644" port2ID="-80712" />
+		<Connection port1ID="-80648" port2ID="-80658" />
+		<Connection port1ID="-80648" port2ID="-80774" />
+		<Connection port1ID="-80648" port2ID="-80894" />
+		<Connection port1ID="-80648" port2ID="-80902" />
+		<Connection port1ID="-80648" port2ID="-80910" />
+		<Connection port1ID="-80656" port2ID="-80670" />
+		<Connection port1ID="-80666" port2ID="-80698" />
+		<Connection port1ID="-80668" port2ID="-80674" />
+		<Connection port1ID="-80676" port2ID="-80688" />
+		<Connection port1ID="-80678" port2ID="-80690" />
+		<Connection port1ID="-80680" port2ID="-80692" />
+		<Connection port1ID="-80686" port2ID="-80704" />
+		<Connection port1ID="-80700" port2ID="-80728" />
+		<Connection port1ID="-80702" port2ID="-80716" />
+		<Connection port1ID="-80708" port2ID="-80718" />
+		<Connection port1ID="-80708" port2ID="-80782" />
+		<Connection port1ID="-80708" port2ID="-80824" />
+		<Connection port1ID="-80720" port2ID="-80724" />
+		<Connection port1ID="-80730" port2ID="-80762" />
+		<Connection port1ID="-80732" port2ID="-80738" />
+		<Connection port1ID="-80734" port2ID="-80772" />
+		<Connection port1ID="-80740" port2ID="-80752" />
+		<Connection port1ID="-80742" port2ID="-80754" />
+		<Connection port1ID="-80744" port2ID="-80756" />
+		<Connection port1ID="-80750" port2ID="-80768" />
+		<Connection port1ID="-80764" port2ID="-80802" />
+		<Connection port1ID="-80766" port2ID="-80780" />
+		<Connection port1ID="-80784" port2ID="-80788" />
+		<Connection port1ID="-80792" port2ID="-80836" />
+		<Connection port1ID="-80796" port2ID="-80822" />
+		<Connection port1ID="-80798" port2ID="-80880" />
+		<Connection port1ID="-80804" port2ID="-80812" />
+		<Connection port1ID="-80806" port2ID="-80868" />
+		<Connection port1ID="-80808" port2ID="-80892" />
+		<Connection port1ID="-80814" port2ID="-80834" />
+		<Connection port1ID="-80816" port2ID="-80856" />
+		<Connection port1ID="-80818" port2ID="-80900" />
+		<Connection port1ID="-80826" port2ID="-80830" />
+		<Connection port1ID="-80838" port2ID="-80844" />
+		<Connection port1ID="-80840" port2ID="-80908" />
+		<Connection port1ID="-80846" port2ID="-80886" />
+		<Connection port1ID="-80858" port2ID="-80884" />
+		<Connection port1ID="-80870" port2ID="-80882" />
+	</Connections>
+	<Objects>
+		<Object refID="-37303064" type="System.String">
+			<string>Remap To ORM</string>
+		</Object>
+		<Object refID="526651700" type="System.String">
+			<string>c:/Path/To/Input/Maps</string>
+		</Object>
+		<Object refID="-752120307" type="System.String">
+			<string>c:/Path/To/Output/Mapsc:/Path/To/Input/Maps</string>
+		</Object>
+		<Object refID="7129864" type="System.String">
+			<string>_D.png</string>
+		</Object>
+		<Object refID="782782822" type="System.String">
+			<string>_N.png</string>
+		</Object>
+		<Object refID="645832278" type="System.String">
+			<string>_AO.png</string>
+		</Object>
+		<Object refID="982555994" type="System.String">
+			<string>_R.png</string>
+		</Object>
+		<Object refID="54700693" type="System.String">
+			<string>_M.png</string>
+		</Object>
+		<Object refID="-2128255500" type="System.String">
+			<string>Diffuse</string>
+		</Object>
+		<Object refID="1690472495" type="System.String">
+			<string>Normal</string>
+		</Object>
+		<Object refID="-1038066982" type="System.String">
+			<string>ORM</string>
+		</Object>
+	</Objects>
+</NodeCanvas>

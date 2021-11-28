@@ -8,6 +8,27 @@ using UnityEngine;
 
 public class MP_NodeEditorInterface
 {
+	private static void Exit()
+	{
+		Application.Quit();
+	}
+
+	private static void Execute(object argsParam)
+	{
+		Tuple<NodeEditorUserCache, string> args = (Tuple<NodeEditorUserCache, string>) argsParam;
+		NodeEditorUserCache canvasCache = args.Item1;
+		string procedureName = args.Item2;
+
+		MP_NodeCanvas nodeCanvas = (MP_NodeCanvas)canvasCache.nodeCanvas;
+		nodeCanvas.StartProcedure(procedureName);
+	}
+
+	private static void NewCanvas(object canvasCacheParam)
+	{
+		NodeEditorUserCache canvasCache = (NodeEditorUserCache)canvasCacheParam;
+		canvasCache.NewNodeCanvas(typeof(MP_NodeCanvas));
+	}
+
 	public NodeEditorUserCache canvasCache;
 	public Action<GUIContent> ShowNotificationAction;
 
@@ -44,9 +65,8 @@ public class MP_NodeEditorInterface
 		{
 			GenericMenu menu = new GenericMenu(NodeEditorGUI.useUnityEditorToolbar && !Application.isPlaying);
 
-			// New Canvas filled with canvas types
-			NodeCanvasManager.FillCanvasTypeMenu(ref menu, NewNodeCanvas, "New Canvas/");
-			menu.AddSeparator("");
+			// New Canvas
+			menu.AddItem(new GUIContent("New Canvas"), true, NewCanvas, canvasCache);
 
 			// Import / Export filled with import/export types
 			ImportExportManager.FillImportFormatMenu(ref menu, ImportCanvasCallback, "Import/");
@@ -60,38 +80,43 @@ public class MP_NodeEditorInterface
 			}
 			menu.AddSeparator("");
 
+			//Quit
+			menu.AddItem(new GUIContent("Exit"), true, Exit);
+
 			// Show dropdown
 			menu.Show(new Vector2(3, toolbarHeight + 3));
 		}
 
-		GUILayout.Space(10);
-		GUILayout.FlexibleSpace();
-
-		GUILayout.Label(new GUIContent(canvasCache.nodeCanvas.saveName,
-										"Save Type: " + (canvasCache.nodeCanvas.livesInScene ? "Scene" : "Asset") + "\n" +
-										"Save Path: " + canvasCache.nodeCanvas.savePath), GUI.skin.GetStyle("toolbarLabel"));
-		GUILayout.Label(new GUIContent(canvasCache.typeData.DisplayString, "Canvas Type: " + canvasCache.typeData.DisplayString), GUI.skin.GetStyle("toolbarLabel"));
-
-
-		GUI.backgroundColor = new Color(1, 0.3f, 0.3f, 1);
-		/*if (GUILayout.Button("Reinit", GUI.skin.GetStyle("toolbarButton"), GUILayout.Width(100)))
+		if (GUILayout.Button("Actions", GUI.skin.GetStyle("toolbarDropdown"), GUILayout.Width(60)))
 		{
-			NodeEditor.ReInit(true);
-			NodeEditorGUI.CreateDefaultSkin();
-			canvasCache.nodeCanvas.Validate();
-		}*/
-		if (Application.isPlaying)
-		{
-			GUILayout.Space(5);
-			if (GUILayout.Button("Quit", GUI.skin.GetStyle("toolbarButton"), GUILayout.Width(100)))
-				Application.Quit();
+			GenericMenu menu = new GenericMenu(NodeEditorGUI.useUnityEditorToolbar && !Application.isPlaying);
+
+			foreach (string procName in FindProcNames())
+			{
+				Tuple<NodeEditorUserCache, string> args = new Tuple<NodeEditorUserCache, string>(canvasCache, procName);
+				menu.AddItem(new GUIContent("Execute " + procName), true, Execute, args);
+			}
+
+			// Show dropdown
+			menu.Show(new Vector2(53, toolbarHeight + 3));
 		}
-		GUI.backgroundColor = Color.white;
+
+		GUILayout.FlexibleSpace();
 
 		GUILayout.EndHorizontal();
 		if (Event.current.type == EventType.Repaint)
 			toolbarHeight = GUILayoutUtility.GetLastRect().yMax;
 	}
+
+	private List<string> FindProcNames()
+    {
+		List<string> procNames = new List<string>();
+		foreach (Node node in canvasCache.nodeCanvas.nodes)
+			if (node is BeginProcNode)
+				procNames.Add(((BeginProcNode)node).procName);
+
+		return procNames;
+    }
 
 	private void SaveSceneCanvasPanel()
 	{
@@ -131,23 +156,6 @@ public class MP_NodeEditorInterface
 	#endregion
 
 	#region Menu Callbacks
-
-	private void NewNodeCanvas(Type canvasType)
-	{
-		canvasCache.NewNodeCanvas(canvasType);
-	}
-
-	private void LoadSceneCanvasCallback(object canvas)
-	{
-		canvasCache.LoadSceneNodeCanvas((string)canvas);
-		sceneCanvasName = canvasCache.nodeCanvas.name;
-	}
-
-	private void SaveSceneCanvasCallback()
-	{
-		modalPanelContent = SaveSceneCanvasPanel;
-		showModalPanel = true;
-	}
 
 	private void ImportCanvasCallback(string formatID)
 	{

@@ -7,8 +7,8 @@ using UnityEngine;
 public class MP_NodeEditor : MonoBehaviour
 {
 	// Startup-canvas, cache and interface
-	public NodeCanvas assetSave;
-	public string sceneSave;
+	//public NodeCanvas assetSave;
+	//public string sceneSave;
 	private NodeEditorUserCache canvasCache;
 	private MP_NodeEditorInterface editorInterface;
 
@@ -17,8 +17,13 @@ public class MP_NodeEditor : MonoBehaviour
 	public Rect canvasRect = new Rect(50, 50, 900, 400);
 	public Rect rect { get { return fullscreen ? new Rect(0, 0, Screen.width, Screen.height) : canvasRect; } }
 
-
-	private void Start()
+    private void Awake()
+    {
+		System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();
+		customCulture.NumberFormat.NumberDecimalSeparator = ".";
+		System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
+	}
+    private void Start()
 	{
 		NormalReInit();
 	}
@@ -32,6 +37,7 @@ public class MP_NodeEditor : MonoBehaviour
 	{
 		NodeEditor.ReInit(false);
 		AssureSetup();
+		canvasCache.NewNodeCanvas(typeof(MP_NodeCanvas));
 		if (canvasCache.nodeCanvas)
 			canvasCache.nodeCanvas.Validate();
 	}
@@ -41,10 +47,10 @@ public class MP_NodeEditor : MonoBehaviour
 		if (canvasCache == null)
 		{ // Create cache and load startup-canvas
 			canvasCache = new NodeEditorUserCache();
-			if (assetSave != null)
-				canvasCache.SetCanvas(NodeEditorSaveManager.CreateWorkingCopy(assetSave));
-			else if (!string.IsNullOrEmpty(sceneSave))
-				canvasCache.LoadSceneNodeCanvas(sceneSave);
+			//if (assetSave != null)
+			//	canvasCache.SetCanvas(NodeEditorSaveManager.CreateWorkingCopy(assetSave));
+			//else if (!string.IsNullOrEmpty(sceneSave))
+			//	canvasCache.LoadSceneNodeCanvas(sceneSave);
 		}
 		canvasCache.AssureCanvas();
 		if (editorInterface == null)
