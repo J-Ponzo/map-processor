@@ -51,6 +51,16 @@ public class SaveTextureNode : AMP_Node
 			NodeEditor.curNodeCanvas.OnNodeChange(this);
 	}
 
+	public override bool Execute(out AMP_Node nextNode)
+	{
+		base.Execute(out nextNode);
+
+		if (execOutKnob.connections.Count > 0)
+			nextNode = (AMP_Node)execOutKnob.connections[0].body;
+
+		executed = true;
+		return true;
+	}
 	public override bool Calculate()
 	{
 		return true;

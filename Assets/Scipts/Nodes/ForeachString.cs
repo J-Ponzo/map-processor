@@ -62,6 +62,17 @@ public class ForeachString : AMP_Node
 			NodeEditor.curNodeCanvas.OnNodeChange(this);
 	}
 
+	public override bool Execute(out AMP_Node nextNode)
+	{
+		base.Execute(out nextNode);
+
+		if (execLoopKnob.connections.Count > 0)
+			nextNode = (AMP_Node)execLoopKnob.connections[0].body;
+
+		executed = true;
+		return true;
+	}
+
 	public override bool Calculate()
 	{
 		return true;
